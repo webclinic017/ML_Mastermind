@@ -1,8 +1,11 @@
-# ML_LinearRegression
+# ML_Mastermind
 Linear Regression Model for Fundamental Stock Market Data
 
 ### Goal
-Determine a formula to estimate expected return involving multiple variables. 
+Build and AI to solve Mastermind. 
 
 ### Plan
-1. Find a place to find stock data.
+1. Model out the data of the game. 
+2. Build a neural network. 
+3. Train the neural network. 
+4. Go wreck some nerds. 
