@@ -1,4 +1,4 @@
-# MachineLearning_LinearRegression
+# ML_LinearRegression
 Linear Regression Model for Fundamental Stock Market Data
 
 ### Goal
