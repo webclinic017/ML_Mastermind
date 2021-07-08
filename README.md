@@ -2,7 +2,7 @@
 Linear Regression Model for Fundamental Stock Market Data
 
 ### Goal
-Build and AI to solve Mastermind. 
+Build an AI to solve Mastermind. 
 
 ### Plan
 1. Model out the data of the game. 
