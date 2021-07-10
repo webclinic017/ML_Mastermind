@@ -43,6 +43,7 @@ class MastermindGame:
 
 
 # TEST CODE BELOW
+print ("Game 1: 1234")
 game = MastermindGame ([1, 2, 3, 4])
 game.guessCode ([1, 2, 3, 4])
 print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
@@ -63,4 +64,12 @@ print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWro
 game.guessCode ([])
 print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
 game.guessCode (None)
+print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
+print ("Game 2: 5566")
+game = MastermindGame ([5, 5, 6, 6])
+game.guessCode ([5, 5, 6, 6])
+print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
+game.guessCode ([6, 6, 6, 6])
+print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
+game.guessCode ([6, 6, 5, 5])
 print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
