@@ -3,17 +3,15 @@ import copy
 
 class MastermindGame:
     passCode = []  # 4 digits long, 1-9
-
-    correctDigitsWrongPlacement = 0
     correctDigitsRightPlacement = 0
+    correctDigitsWrongPlacement = 0
 
-    def __init__ (self, passCode):
-        self.passCode = passCode
-
-    def guessCode (self, guessCode):
+    def getScoreOfGuessCode (self, guessCode):
         self.correctDigitsRightPlacement = self.getCorrectDigitsRightPlacement (guessCode)
         self.correctDigitsWrongPlacement = self.getCorrectDigitsWrongPlacement (guessCode,
                                                                                 self.correctDigitsRightPlacement)
+        score = 2 * self.correctDigitsRightPlacement + self.correctDigitsWrongPlacement
+        return score
 
     def getCorrectDigitsRightPlacement (self, guessCode):
         correctDigitsRightPlacement = 0
@@ -42,34 +40,23 @@ class MastermindGame:
         return correctDigitsWrongPlacement
 
 
-# TEST CODE BELOW
+print ("----- TESTING -----")
 print ("Game 1: 1234")
-game = MastermindGame ([1, 2, 3, 4])
-game.guessCode ([1, 2, 3, 4])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([4, 3, 2, 1])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([5, 5, 5, 5])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([1, 1, 2, 2])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([3, 3, 1, 1])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([4, 4, 4, 4])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([2, 2, 3, 3])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([1, 2, 3])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode (None)
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-print ("Game 2: 5566")
-game = MastermindGame ([5, 5, 6, 6])
-game.guessCode ([5, 5, 6, 6])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([6, 6, 6, 6])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
-game.guessCode ([6, 6, 5, 5])
-print (str (game.correctDigitsRightPlacement) + " " + str (game.correctDigitsWrongPlacement))
+game = MastermindGame ()
+game.passCode = [1, 2, 3, 4]
+assert game.getScoreOfGuessCode ([1, 2, 3, 4]) == 8
+assert game.correctDigitsWrongPlacement == 0
+assert game.correctDigitsRightPlacement == 4
+
+assert game.getScoreOfGuessCode ([4, 3, 2, 1]) == 4
+assert game.correctDigitsWrongPlacement == 4
+assert game.correctDigitsRightPlacement == 0
+
+assert game.getScoreOfGuessCode ([5, 5, 5, 5]) == 0
+assert game.correctDigitsWrongPlacement == 0
+assert game.correctDigitsRightPlacement == 0
+
+assert game.getScoreOfGuessCode ([1, 1, 2, 2]) == 3
+assert game.correctDigitsWrongPlacement == 1
+assert game.correctDigitsRightPlacement == 1
+print ("All test cases passed. ")
